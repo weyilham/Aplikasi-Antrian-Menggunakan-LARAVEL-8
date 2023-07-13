@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Antrian;
+use App\Models\Layanan;
 use \App\Models\Loket;
-
+use App\Models\RegPasien;
 
 class AntrianController extends Controller
 {
@@ -28,6 +29,31 @@ class AntrianController extends Controller
             'antrian' => $antrian,
             'loket' => Loket::all()
         ]);
+    }
+
+    public function plasmaAntrian(){
+        return view('dashboard.antrian.plasma_antrian', [
+            'poli' => Layanan::all()
+        ]);
+    }
+
+    public function getPlasmaAntrian(Request $request){
+
+        
+        // dd($request->post('layanan_id')); 
+        
+           $query = RegPasien::whereRaw('day(created_at) = ' . date('d') . ' and month(created_at) = ' . date('m') . ' and year(created_at) = ' . date('Y'))
+           ->where('layanan_id', $request->post('layanan_id'))
+           ->get();
+        
+           return view('dashboard.antrian.get_antrian_poli', [
+            'data' => $query,
+            'layanan' => Layanan::where('id', $request->post('layanan_id'))->get()
+           ]);
+
+        
+
+    
     }
 
     public function getRowId($id, $tipe)

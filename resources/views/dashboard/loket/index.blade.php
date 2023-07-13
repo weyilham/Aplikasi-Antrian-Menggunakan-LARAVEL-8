@@ -17,7 +17,7 @@
             <div class="card-body">
               <div class="clearfix">
                 <h4 class="card-title float-left">Daftar Data Loket</h4>
-                <a href="/dashboard/users/create" class="btn btn-sm btn-info mb-2"> <i class="mdi mdi-table-row-plus-before"></i> Tambah Data Users</a>
+                
               </div>
               
             @if (session()->has('success'))
@@ -35,7 +35,6 @@
                       <th>Nama Loket</th>
                       <th>Kode</th>
                       <th>Deskripsi</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -46,15 +45,7 @@
                         <td>{{ $L->kode }}</td>
                         <td>{{ $L->deskripsi }}</td>
                         
-                        <td>
-                          <a href="/dashboard/loket/{{ $L->id }}" class="badge bg-info"><i class="mdi mdi-eye"></i></a>
-                          <a href="/dashboard/loket/{{ $L->id }}/edit" class="badge bg-success"><i class="mdi mdi-table-edit"></i></a>
-                          <form action="/dashboard/loket/{{ $L->id }}" method="post" class="d-inline">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Apakah yakin akan dihapus?')"><i class="mdi mdi-table-row-remove"></i></button>
-                          </form>
-                        </td>
+                        
     
                       </tr>
                     @endforeach

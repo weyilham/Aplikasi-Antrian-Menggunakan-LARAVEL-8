@@ -21,7 +21,7 @@
 
                     <div class="col-lg-8 mb-2">
                         <form action="/dashboard/antrian" class="input-group">
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 <select class="form-select loket mb-3" name="id_loket">
                                     <option selected disabled>Pilih Loket</option>
                                     @foreach ($loket as $l)
@@ -33,8 +33,10 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-6">
                                 <button type="submit" class="btn btn-sm btn-info mx-2">Pilih</button>
+                                <a href="/loket-antrian" class="btn btn-sm btn-danger" target="_blank" rel="noopener noreferrer">Loket Antrian</a>
+                                <a href="/plasma" class="btn btn-sm btn-success" target="_blank" rel="noopener noreferrer">lihat plasma antrian</a>
                             </div>
                         </form>
                     </div>

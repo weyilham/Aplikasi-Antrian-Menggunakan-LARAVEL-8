@@ -15,4 +15,6 @@ class Antrian extends Model
     {
         return $this->belongsTo(Loket::class);
     }
+
+    
 }

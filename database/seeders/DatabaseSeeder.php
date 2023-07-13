@@ -55,5 +55,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(5)->create();
+        $this->call(LayananSeeder::class);
+        $this->call(DokterSeeder::class);
+
     }
 }
